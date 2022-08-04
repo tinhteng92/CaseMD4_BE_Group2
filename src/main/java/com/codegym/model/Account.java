@@ -2,10 +2,8 @@ package com.codegym.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Data
@@ -15,10 +13,11 @@ public class Account {
     private long idAccount;
     private String username;
     private String password;
-    private String role;
     private String displayName;
     private String gender;
     private String address;
     private String phoneNumber;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<Role> roles;
 
 }
