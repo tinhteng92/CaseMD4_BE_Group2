@@ -11,6 +11,6 @@ public interface IProductService {
     void delete(long id);
     Product findById(long id);
     Product save(Product product);
-    Page<Product> findByName(String name);
+    List<Product> findByName(String name);
 }
 
