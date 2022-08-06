@@ -5,6 +5,8 @@ import com.codegym.service.impl.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin("*")
 public class RegisterController {
@@ -13,8 +15,8 @@ public class RegisterController {
     AccountService accountService;
 
     @GetMapping("/register")
-    public String getRegister() {
-        return "Register";
+    public List<Account> getRegister() {
+        return accountService.getAll();
     }
 
     @PostMapping("/register")
