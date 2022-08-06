@@ -38,8 +38,9 @@ public class LoginAPI {
             SecurityContextHolder.getContext().setAuthentication(authentication);
 
             String token = jwtService.createToken(authentication);
+            String username = account.getUsername();
             String role = accountService.findRoleByUsername(account.getUsername()).get(0);
-            return new UserLogin(role, token);
+            return new UserLogin(username,role, token);
 
     }
 
@@ -54,3 +55,4 @@ public class LoginAPI {
         return accountService.getAll();
     }
 }
+

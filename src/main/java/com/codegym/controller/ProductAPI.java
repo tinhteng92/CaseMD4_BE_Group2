@@ -30,7 +30,7 @@ public class ProductAPI {
 
     @GetMapping
     public Page<Product> getAll(@RequestParam(defaultValue = "0") int page) {
-        return productService.getAll(PageRequest.of(page, 6));
+        return productService.getAll(PageRequest.of(page, 9));
     }
 
     @GetMapping("/{id}")
@@ -44,4 +44,9 @@ public class ProductAPI {
     }
 
 
+    @PutMapping
+    public String updateQuantity(@RequestBody Product product) {
+            productService.save(product);
+        return "update quantity success";
+    }
 }
