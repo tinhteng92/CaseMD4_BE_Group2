@@ -26,4 +26,8 @@ public class AccountService implements UserDetailsService {
     public List<Account> getAll(){
         return (List<Account>) iAccountRepo.findAll();
     }
+
+    public Account findAccountByUserName(String name){
+        return iAccountRepo.findByUsername(name);
+    }
 }

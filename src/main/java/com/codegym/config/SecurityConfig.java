@@ -2,6 +2,7 @@ package com.codegym.config;
 
 
 import com.codegym.config.filter.JwtAuthenticationFilter;
+import com.codegym.model.Account;
 import com.codegym.service.impl.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -13,9 +14,12 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
+
+import java.util.Optional;
 
 @Configuration
 @EnableWebSecurity
@@ -30,13 +34,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public AuthenticationManager authenticationManager() throws Exception {
         return super.authenticationManager();
-    }
+
+        }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 //        http.csrf().ignoringAntMatchers("/**");
         http.authorizeRequests()
-                .antMatchers("/", "/login", "/register").permitAll()
+                .antMatchers( "/login", "/register","/home","/detail","/").permitAll()
                 .and().authorizeRequests().antMatchers("/user/**").hasRole("USER")
                 .and().authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
