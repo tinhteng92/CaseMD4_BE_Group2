@@ -27,6 +27,14 @@ public class Cart {
         return productList;
     }
 
+//    public List<Integer> getListSoLuong() {
+//        List<Integer> soLuongList = new ArrayList<>();
+//        for (Map.Entry<Product, Integer> entry : products.entrySet()) {
+//            soLuongList.add(entry.getValue());
+//        }
+//        return soLuongList;
+//    }
+
     public void setProducts(Map<Product, Integer> products) {
         this.products = products;
     }
@@ -66,6 +74,15 @@ public class Cart {
             products.remove(itemEntry.getKey());
         }
     }
+
+//    public void deleteAllProduct() {
+////        if (checkItemInCart((product))) {
+////            Map.Entry<Product,Integer> itemEntry = selectItemInCart(product);
+////            products.replace(itemEntry.getKey(),0);
+////            products.remove(itemEntry.getKey());
+////        }
+//        products = new HashMap<>();
+//    }
     public void decreaseProduct(Product product) {
         Map.Entry<Product,Integer> itemEntry = selectItemInCart(product);
         Integer newQuantity = 0;

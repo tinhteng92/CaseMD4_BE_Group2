@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
+
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/carts")
@@ -21,6 +23,10 @@ public class CartController {
             return cart.getListProducts();
         }
 
+//        @GetMapping("/soLuongList")
+//        public List<Integer> showSoLuong1sp() {
+//             return cart.getListSoLuong();
+//        }
 
         @PostMapping
         public Product save(@RequestBody Product product) {
@@ -36,5 +42,11 @@ public class CartController {
             return "Deleted";
         }
 
-    }
+        @DeleteMapping
+        public List<Product> deleteCart() {
+            cart = new Cart();
+            return cart.getListProducts();
+        }
+
+}
 

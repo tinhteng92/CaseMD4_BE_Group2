@@ -36,5 +36,9 @@ public class ProductAPI {
         return productService.findById(id);
     }
 
-
+    @PutMapping
+    public String updateQuantity(@RequestBody Product product) {
+            productService.save(product);
+        return "update quantity success";
+    }
 }
