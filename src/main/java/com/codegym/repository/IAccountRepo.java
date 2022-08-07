@@ -23,5 +23,11 @@ public interface IAccountRepo extends CrudRepository<Account, Long> {
 
     @Query(nativeQuery = true,value = "select role.name from role join account_roles on role.id = account_roles.roles_id join account on account_roles.account_id_account = account.id_account where account.username =:username")
     List<String> findRoleByUsername(@Param("username") String username);
+
+
+    @Query(nativeQuery = true, value = "select account.id_account from account where account.username = :username ")
+    Long findIdByUsername(@Param("username") String username);
+
+
 }
 

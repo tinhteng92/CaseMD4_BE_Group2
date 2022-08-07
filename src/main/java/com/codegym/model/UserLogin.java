@@ -1,17 +1,27 @@
 package com.codegym.model;
 
 public class UserLogin {
-        private  String username;
-        private String role;
-        private String token;
+    private long idAccount;
+    private String username;
+    private String role;
+    private String token;
 
     public UserLogin() {
     }
 
-    public UserLogin(String username, String role, String token) {
+    public UserLogin(long idAccount, String username, String role, String token) {
+        this.idAccount = idAccount;
         this.username = username;
         this.role = role;
         this.token = token;
+    }
+
+    public long getIdAccount() {
+        return idAccount;
+    }
+
+    public void setIdAccount(long idAccount) {
+        this.idAccount = idAccount;
     }
 
     public String getUsername() {
@@ -38,4 +48,3 @@ public class UserLogin {
         this.token = token;
     }
 }
-

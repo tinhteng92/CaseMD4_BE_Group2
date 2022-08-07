@@ -46,4 +46,8 @@ public class AccountService implements IAccountService {
     public List<String> findRoleByUsername(String username){
         return iAccountRepo.findRoleByUsername(username);
     }
+
+    public Long findIdByName(String username){
+        return iAccountRepo.findIdByUsername(username);
+    }
 }

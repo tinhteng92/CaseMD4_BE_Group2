@@ -36,11 +36,11 @@ public class LoginAPI {
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(account.getUsername(), account.getPassword()));
             SecurityContextHolder.getContext().setAuthentication(authentication);
-
+            Long idAccount = accountService.findIdByName(account.getUsername());
             String token = jwtService.createToken(authentication);
             String username = account.getUsername();
             String role = accountService.findRoleByUsername(account.getUsername()).get(0);
-            return new UserLogin(username,role, token);
+            return new UserLogin(idAccount,username,role, token);
 
     }
 
