@@ -41,4 +41,13 @@ public class ProductService implements IProductService {
     public List<Product> findByName(String name) {
         return iProductRepo.findProductsByNameProductContaining(name);
     }
+
+    @Override
+    public List<Product> findByColor(String idColor) {
+        return iProductRepo.findProductsByColor(idColor);
+    }
+    @Override
+    public List<Product> findBySize(String idSize) {
+        return iProductRepo.findProductsBySize(idSize);
+    }
 }

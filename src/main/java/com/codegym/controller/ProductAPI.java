@@ -49,4 +49,14 @@ public class ProductAPI {
             productService.save(product);
         return "update quantity success";
     }
+
+    @GetMapping("/color/{idColor}")
+    public List<Product> findByColor(@PathVariable String idColor) {
+        return productService.findByColor(idColor);
+    }
+    @GetMapping("/size/{idSize}")
+    public List<Product> findBySize(@PathVariable String idSize) {
+        return productService.findBySize(idSize);
+    }
+
 }

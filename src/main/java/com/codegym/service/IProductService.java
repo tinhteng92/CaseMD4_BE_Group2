@@ -12,5 +12,8 @@ public interface IProductService {
     Product findById(long id);
     Product save(Product product);
     List<Product> findByName(String name);
+    List<Product> findByColor(String idColor);
+    List<Product> findBySize(String idSize);
+
 }
 

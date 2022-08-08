@@ -16,7 +16,13 @@ public interface IProductRepo extends PagingAndSortingRepository<Product, Long> 
     // Tim kiem bang Color
     Iterable<Product> findAllByColor(Color color);
 
-//    @Query(nativeQuery = true, value = "SELECT * FROM case_md4.product where color_id_color =:idColor and ")
+    @Query(nativeQuery = true, value = "SELECT * FROM case_md4.product where color_id_color =:idColor ")
+    List<Product> findProductsByColor(String idColor);
+
+
+    @Query(nativeQuery = true, value = "SELECT * FROM case_md4.product where size_id_size =:idSize ")
+    List<Product> findProductsBySize(String idSize);
+
 
 
 }
