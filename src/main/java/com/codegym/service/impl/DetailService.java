@@ -6,6 +6,7 @@ import com.codegym.service.IDetailReceiptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -21,5 +22,10 @@ public class DetailService implements IDetailReceiptService {
     @Override
     public List<DetailReceipt> getAll() {
         return (List<DetailReceipt>) iDetailReceiptRepo.findAll();
+    }
+
+    @Override
+    public List<DetailReceipt> findDetailReceipt(long idAccount, String timePayment) {
+        return iDetailReceiptRepo.findDetailReceipt(idAccount, timePayment);
     }
 }

@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RestController
@@ -28,5 +29,11 @@ public class DetailReceiptController {
     @GetMapping
     public List<DetailReceipt> getAll(@RequestParam(defaultValue = "0") int page) {
         return detailReceiptService.getAll();
+    }
+
+    @GetMapping("/{idAccount}/{timePayment}")
+    public List<DetailReceipt> getDetailReceipt(@PathVariable long idAccount, @PathVariable String timePayment) {
+
+        return detailReceiptService.findDetailReceipt(idAccount,timePayment);
     }
 }

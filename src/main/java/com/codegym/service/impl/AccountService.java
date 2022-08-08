@@ -30,14 +30,23 @@ public class AccountService implements IAccountService {
     }
 
     @Override
-    public void save(Account account) {
-        iAccountRepo.save(account);
+    public Account save(Account account) {
+        return iAccountRepo.save(account);
+
     }
 
     @Override
     public void delete(Long id) {
         iAccountRepo.deleteById(id);
     }
+
+    @Override
+    public Account findByUsername(String username) {
+        return iAccountRepo.findByUsername(username);
+    }
+
+    public Account findAccountByUserName(String username){
+        return iAccountRepo.findByUsername(username);}
 
     public void setRoleByID(long id) {
         iAccountRepo.saveRole(id);
