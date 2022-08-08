@@ -1,5 +1,6 @@
 package com.codegym.service.impl;
 
+import com.codegym.model.Account;
 import com.codegym.model.Product;
 import com.codegym.repository.IProductRepo;
 import com.codegym.service.IProductService;
@@ -19,6 +20,8 @@ public class ProductService implements IProductService {
     public Page<Product> getAll(Pageable pageable) {
         return (Page<Product>) iProductRepo.findAll(pageable);
     }
+
+
 
     @Override
     public Product save(Product product) {
@@ -40,5 +43,9 @@ public class ProductService implements IProductService {
     @Override
     public List<Product> findByName(String name) {
         return iProductRepo.findProductsByNameProductContaining(name);
+    }
+
+    public List<Product> findPrice0_100(long price) {
+        return iProductRepo.findAllByPrice0_100(price);
     }
 }
