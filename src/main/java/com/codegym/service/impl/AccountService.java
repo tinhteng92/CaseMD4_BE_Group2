@@ -3,19 +3,22 @@ package com.codegym.service.impl;
 
 import com.codegym.model.Account;
 import com.codegym.repository.IAccountRepo;
+import com.codegym.service.IAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class AccountService implements UserDetailsService {
+public class AccountService implements IAccountService {
     @Autowired
     IAccountRepo iAccountRepo;
+
+
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -27,7 +30,30 @@ public class AccountService implements UserDetailsService {
         return (List<Account>) iAccountRepo.findAll();
     }
 
-    public Account findAccountByUserName(String name){
-        return iAccountRepo.findByUsername(name);
+    @Override
+    public Account save(Account account) {
+        iAccountRepo.save(account);
+        return account;
     }
+
+    @Override
+    public void delete(Long id) {
+        iAccountRepo.deleteById(id);
+    }
+
+    @Override
+    public Account findByUsername(String username) {
+        return iAccountRepo.findByUsername(username);
+    }
+
+    public void setRoleByID(long id) {
+        iAccountRepo.saveRole(id);
+    }
+
+
+    public List<String> findRoleByUsername(String username){
+        return iAccountRepo.findRoleByUsername(username);
+    }
+    public Account findAccountByUserName(String username){
+        return iAccountRepo.findByUsername(username);}
 }
