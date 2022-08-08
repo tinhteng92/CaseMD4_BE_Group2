@@ -10,5 +10,6 @@ public interface IAccountService extends UserDetailsService {
     Account save(Account account);
     void delete(Long id);
     Account findByUsername(String username);
+
 }
 

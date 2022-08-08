@@ -16,7 +16,7 @@ public class ProfileController {
     public Account findByUsername(@PathVariable String username){
         return accountService.findByUsername(username);
     }
-       @GetMapping
+       @PostMapping("/edit")
     public Account edit(@RequestBody Account account){
         return accountService.save(account);
     }
