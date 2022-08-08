@@ -11,7 +11,7 @@ import java.util.Map;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/carts")
+@RequestMapping("/user/carts")
 public class CartController {
         static Cart cart = new Cart();
         @Autowired
@@ -35,14 +35,14 @@ public class CartController {
         }
 
 
-        @DeleteMapping("/{id}")
+        @GetMapping("/delete/{id}")
         public String delete(@PathVariable long id) {
             Product product = productService.findById(id);
             cart.deleteProduct(product);
             return "Deleted";
         }
 
-        @DeleteMapping
+        @GetMapping("/delete")
         public List<Product> deleteCart() {
             cart = new Cart();
             return cart.getListProducts();

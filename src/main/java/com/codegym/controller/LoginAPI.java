@@ -45,14 +45,14 @@ public class LoginAPI {
     }
 
 
-    @PostMapping("/register")
-    public void register(@RequestBody Account account){
-        accountService.save(account);
-        accountService.setRoleByID(account.getIdAccount());
-    }
-    @GetMapping("/account")
-    public List<Account> allAccount(){
-        return accountService.getAll();
-    }
+//    @PostMapping("/register")
+//    public void register(@RequestBody Account account){
+//        accountService.save(account);
+//        accountService.setRoleByID(account.getIdAccount());
+//    }
+//    @GetMapping("/account")
+//    public List<Account> allAccount(){
+//        return accountService.getAll();
+//    }
 }
 

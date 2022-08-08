@@ -16,7 +16,7 @@ import java.util.List;
 
     @RestController
     @CrossOrigin("*")
-    @RequestMapping("/product")
+    @RequestMapping("/admin/product")
     public class ProductAdmin {
         @Autowired
         IProductService iProductService;
@@ -53,13 +53,13 @@ import java.util.List;
             return "img/"+name;
         }
 
-        @PutMapping
+        @PostMapping("/edit")
         public Product edit(@RequestBody Product product){
             return iProductService.save(product);
         }
 
 
-        @DeleteMapping("/{id}")
+        @GetMapping ("/delete/{id}")
         public void delete(@PathVariable long id){
             iProductService.delete(id);
         }

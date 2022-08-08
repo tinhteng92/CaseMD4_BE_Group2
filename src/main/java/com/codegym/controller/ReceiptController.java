@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/receipts")
+@RequestMapping("/user/receipts")
 public class ReceiptController {
     @Autowired
     IReceiptService receiptService;
