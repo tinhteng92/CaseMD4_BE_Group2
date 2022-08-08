@@ -1,6 +1,5 @@
 package com.codegym.controller;
 
-import com.codegym.model.Product;
 import com.codegym.model.Receipt;
 import com.codegym.service.IReceiptService;
 import org.springframework.beans.factory.annotation.Autowired;
