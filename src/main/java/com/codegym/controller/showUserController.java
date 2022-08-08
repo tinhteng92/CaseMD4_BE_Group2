@@ -18,11 +18,9 @@ public class showUserController {
         return accountService.getAll();
     }
 
-    @DeleteMapping("/{id}")
+    @GetMapping("/delete/{id}")
     public void delete(@PathVariable long id){
         accountService.delete(id);
     }
-
-
 
 }
