@@ -30,7 +30,7 @@ public class ProductAPI {
 
     @GetMapping
     public Page<Product> getAll(@RequestParam(defaultValue = "0") int page) {
-        return productService.getAll(PageRequest.of(page, 9));
+        return productService.getAll(PageRequest.of(page, 6));
     }
 
     @GetMapping("/{id}")
