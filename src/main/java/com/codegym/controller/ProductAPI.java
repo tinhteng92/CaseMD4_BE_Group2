@@ -10,6 +10,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/home")
@@ -28,7 +30,7 @@ public class ProductAPI {
 
     @GetMapping
     public Page<Product> getAll(@RequestParam(defaultValue = "0") int page) {
-        return productService.getAll(PageRequest.of(page, 9));
+        return productService.getAll(PageRequest.of(page, 6));
     }
 
     @GetMapping("/{id}")
@@ -36,9 +38,25 @@ public class ProductAPI {
         return productService.findById(id);
     }
 
+    @GetMapping("/search")
+    public List<Product> findByName(@RequestParam(defaultValue = "") String name){
+        return productService.findByName(name);
+    }
+
+
     @PutMapping
     public String updateQuantity(@RequestBody Product product) {
             productService.save(product);
         return "update quantity success";
     }
+
+    @GetMapping("/color/{idColor}")
+    public List<Product> findByColor(@PathVariable String idColor) {
+        return productService.findByColor(idColor);
+    }
+    @GetMapping("/size/{idSize}")
+    public List<Product> findBySize(@PathVariable String idSize) {
+        return productService.findBySize(idSize);
+    }
+
 }

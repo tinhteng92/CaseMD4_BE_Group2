@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/detailReceipts")
+@RequestMapping("/user/detailReceipts")
 public class DetailReceiptController {
     @Autowired
     IDetailReceiptService detailReceiptService;

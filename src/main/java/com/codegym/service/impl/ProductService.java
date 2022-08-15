@@ -8,6 +8,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductService implements IProductService {
     @Autowired
@@ -23,6 +25,7 @@ public class ProductService implements IProductService {
         return iProductRepo.save(product);
     }
 
+
     @Override
     public void delete(long id) {
         iProductRepo.deleteById(id);
@@ -35,7 +38,16 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public Page<Product> findByName(String name) {
-        return (Page<Product>) iProductRepo.findProductsByNameProductContaining(name);
+    public List<Product> findByName(String name) {
+        return iProductRepo.findProductsByNameProductContaining(name);
+    }
+
+    @Override
+    public List<Product> findByColor(String idColor) {
+        return iProductRepo.findProductsByColor(idColor);
+    }
+    @Override
+    public List<Product> findBySize(String idSize) {
+        return iProductRepo.findProductsBySize(idSize);
     }
 }

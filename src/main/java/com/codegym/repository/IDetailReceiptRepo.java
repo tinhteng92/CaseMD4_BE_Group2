@@ -1,12 +1,10 @@
 package com.codegym.repository;
 
 import com.codegym.model.DetailReceipt;
-import com.codegym.model.Product;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 public interface IDetailReceiptRepo extends CrudRepository<DetailReceipt, Long> {
